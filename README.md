@@ -210,7 +210,7 @@ You can test this endpoint using the included [Postman Collection](./postman_col
 Import it into Postman`(In Postman, click **Import** > **File** and upload the JSON)`, update the your-api-token variable with your `Sabre OAuth token`, and start testing!
 
 ## Swaggerhub url
-[SwaggerHub link](https://app.swaggerhub.com/apis/spark-94a/sabre-api/1.0.0-oas3)
+[SwaggerHub link](https://app.swaggerhub.com/apis/ridwanfreelancer-19d/Sabre-Booking-Management-API/1.0.0-oas3)
 
 
 
