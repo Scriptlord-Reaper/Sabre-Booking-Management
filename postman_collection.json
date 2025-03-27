@@ -1,0 +1,109 @@
+
+{
+  "info": {
+    "name": "Get Booking - Sabre Booking Management API",
+    "_postman_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    "description": "A collection to test the Get Booking method of the Sabre Booking Management API.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get Full Booking",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{your-api-token}}",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"confirmationId\": \"ABCD12\"\n}"
+        },
+        "url": {
+          "raw": "https://api.sabre.com/v1/trip/orders/getBooking",
+          "protocol": "https",
+          "host": ["api", "sabre", "com"],
+          "path": ["v1", "trip", "orders", "getBooking"]
+        },
+        "description": "Fetches all details of a booking using a confirmation ID."
+      },
+      "response": []
+    },
+    {
+      "name": "Validate with Surname",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{your-api-token}}",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"confirmationId\": \"ABCD12\",\n  \"surname\": \"Smith\"\n}"
+        },
+        "url": {
+          "raw": "https://api.sabre.com/v1/trip/orders/getBooking",
+          "protocol": "https",
+          "host": ["api", "sabre", "com"],
+          "path": ["v1", "trip", "orders", "getBooking"]
+        },
+        "description": "Validates a booking with a traveler’s surname."
+      },
+      "response": []
+    },
+    {
+      "name": "Get Specific Elements",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{your-api-token}}",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"confirmationId\": \"ABCD12\",\n  \"returnOnly\": [\"FLIGHTS\", \"TRAVELERS\", \"TICKETS\"]\n}"
+        },
+        "url": {
+          "raw": "https://api.sabre.com/v1/trip/orders/getBooking",
+          "protocol": "https",
+          "host": ["api", "sabre", "com"],
+          "path": ["v1", "trip", "orders", "getBooking"]
+        },
+        "description": "Fetches specific elements (flights, travelers, tickets) of a booking."
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "your-api-token",
+      "value": "your-sabre-oauth-token-here",
+      "type": "string",
+      "description": "Replace with your actual Sabre OAuth token."
+    }
+  ]
+}
