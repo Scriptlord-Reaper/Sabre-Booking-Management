@@ -1,5 +1,8 @@
 # Get Booking Method - Sabre Booking Management API
 
+_Prepared by: Durojaiye Ridwan_ |
+_Date: March 27, 2025_
+
 ## Table of Contents
 - [Overview](#overview)
 - [Why Use It?](#why-use-it)
@@ -57,7 +60,7 @@ Confirm the booking belongs to a traveler.
 ```json
 {
   "confirmationId": "ABCD12",
-  "surname": "Smith"
+  "surname": "Durojaiye"
 }
 ```
 
@@ -76,7 +79,7 @@ Only grab what you need (e.g., flights and travelers).
 | Parameter        | Required | Description                              | Example            |
 |------------------|----------|------------------------------------------|--------------------|
 | `confirmationId` | Yes      | The booking’s PNR locator or order ID.   | `"ABCD12"`         |
-| `surname`        | No       | Traveler’s last name for validation.     | `"Smith"`          |
+| `surname`        | No       | Traveler’s last name for validation.     | `"Durojaiye"`          |
 | `returnOnly`     | No       | Filters response to specific data types. | `["FLIGHTS"]`      |
 
 > **Note:** `returnOnly` supports `FLIGHTS`, `TRAVELERS`, `HOTELS`, `TICKETS`, `PAYMENTS`. See Sabre’s docs for more options!
@@ -106,7 +109,7 @@ Only grab what you need (e.g., flights and travelers).
   "travelers": [
     {
       "index": 1,
-      "name": "John Smith"
+      "name": "Ridwan Durojaiye"
     }
   ],
   "bookingSignature": "c137df6aadc891d725bbb6e23fa6bd41"
@@ -127,7 +130,7 @@ Only grab what you need (e.g., flights and travelers).
   "travelers": [
     {
       "index": 1,
-      "name": "John Smith"
+      "name": "Ridwan Durojaiye"
     }
   ]
 }
@@ -145,11 +148,11 @@ Only grab what you need (e.g., flights and travelers).
 
 ### Response Fields
 
-| Field             | Description                          | Example            |
-|-------------------|--------------------------------------|--------------------|
-| `flightSegments`  | Array of flight details.             | See above          |
-| `travelers`       | List of traveler info.               | `"name": "John Smith"` |
-| `bookingSignature`| Unique hash for booking integrity.   | `"c137df6aadc89..."` |
+| Field             | Description                          | Example                      |
+|-------------------|--------------------------------------|------------------------------|
+| `flightSegments`  | Array of flight details.             | See above                    |
+| `travelers`       | List of traveler info.               | `"name": "Ridwan Durojaiye"` |
+| `bookingSignature`| Unique hash for booking integrity.   | `"c137df6aadc89..."`         |
 
 ## Common Errors
 
@@ -219,10 +222,10 @@ Import it into Postman`(In Postman, click **Import** > **File** and upload the J
 <summary> Final Note: Why POST instead of GET?</summary>
 
 
-Although a `GET` request might seem sufficient for simple lookups, I opted for `POST` to accommodate optional parameters and I think it align more with future potential sophisticated retrieval workflows.
+Although a `GET` request might seem sufficient for simple lookups, I opted for `POST` to accommodate optional parameters and I think it align more with future sophisticated retrieval workflows.
 
 **Security & Sensitivity Consideration:**  
-Embedding sensitive data such as `confirmationId` or `surname` in a `GET` URL (e.g., `/getBooking?confirmationId=ABCD12&surname=Smith`) can expose it in server logs, browser history, or network traces. Using `POST` keeps this information in the request body—less likely to be logged or cached—offering better protection. This is especially important in travel tech, where PNRs and personal data are involved.
+Embedding sensitive data such as `confirmationId` or `surname` in a `GET` URL (e.g., `/getBooking?confirmationId=ABCD12&surname=Durojaiye`) can expose it in server logs, browser history, or network traces. Using `POST` keeps this information in the request body—less likely to be logged or cached—offering better protection. This is especially important in travel tech, where PNRs and personal data are involved.
 
 **Flexibility for Filtering:** 
 Parameters like `returnOnly`, which accept arrays (e.g., `["FLIGHTS", "TRAVELERS"]`), are cumbersome to encode in query strings (e.g., `?returnOnly=FLIGHTS&returnOnly=TRAVELERS`). A `POST` request with a JSON body simplifies this pattern, enabling cleaner, more expressive requests without URL length limits or parsing overhead.
