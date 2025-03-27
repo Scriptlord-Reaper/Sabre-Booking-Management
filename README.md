@@ -28,7 +28,7 @@ The **Get Booking method** lets you fetch travel booking details—like flights,
 
 Here’s the flow when you call Get Booking:
 
-![Get Booking Flow](./get-booking-flow-chart.png)
+![Get Booking Flow](./get-booking-flow.png)
 
 1. **Validate Input:** Checks the `confirmationId` and your access rights.
 2. **Query Sabre System:** Pulls the booking data from Sabre’s database.
